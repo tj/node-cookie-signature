@@ -1,13 +1,26 @@
 
 # cookie-signature
 
-  Sign and unsign cookies
+  Sign and unsign cookies.
+
+## Example
+
+```js
+var cookie = require('cookie-signature');
+
+var val = cookie.sign('hello', 'tobiiscool');
+val.should.equal('hello.DGDUkGlIkCzPz+C0B064FNgHdEjox7ch8tOBGslZ5QI');
+
+var val = cookie.sign('hello', 'tobiiscool');
+cookie.unsign(val, 'tobiiscool').should.equal('hello');
+cookie.unsign(val, 'luna').should.be.false;
+```
 
 ## License 
 
 (The MIT License)
 
-Copyright (c) 2012 TJ Holowaychuk &lt;tj@learnboost.com&gt;
+Copyright (c) 2012 LearnBoost &lt;tj@learnboost.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
