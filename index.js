@@ -17,7 +17,7 @@ exports.sign = function(val, secret){
   if ('string' != typeof val) throw new TypeError('cookie required');
   if ('string' != typeof secret) throw new TypeError('secret required');
   return val + '.' + crypto
-    .createHmac('sha256', secret)
+    .createHmac('sha512', secret)
     .update(val)
     .digest('base64')
     .replace(/\=+$/, '');
