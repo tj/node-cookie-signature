@@ -8,10 +8,10 @@ var cookie = require('..');
 describe('.sign(val, secret)', function(){
   it('should sign the cookie', function(){
     var val = cookie.sign('hello', 'tobiiscool');
-    val.should.equal('hello.kVofCuivbz8r8NiCfWJV5JsZQBX6WGHgt8ihyKktT7OdEObssUD5JItXNDH9PIaD+rTEQTK9V6+prF9qR0aDSg');
+    val.should.equal('hello.DGDUkGlIkCzPz+C0B064FNgHdEjox7ch8tOBGslZ5QI');
 
     var val = cookie.sign('hello', 'luna');
-    val.should.not.equal('hello.kVofCuivbz8r8NiCfWJV5JsZQBX6WGHgt8ihyKktT7OdEObssUD5JItXNDH9PIaD+rTEQTK9V6+prF9qR0aDSg');
+    val.should.not.equal('hhello.DGDUkGlIkCzPz+C0B064FNgHdEjox7ch8tOBGslZ5QI');
   })
 })
 
