@@ -3,6 +3,8 @@
 
   Sign and unsign cookies.
 
+[![Build Status](https://travis-ci.org/visionmedia/node-cookie-signature.png)](https://travis-ci.org/visionmedia/node-cookie-signature)
+
 ## Example
 
 ```js

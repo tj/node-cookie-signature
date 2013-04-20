@@ -4,6 +4,9 @@
   "description": "Sign and unsign cookies",
   "keywords": ["cookie", "sign", "unsign"],
   "author": "TJ Holowaychuk <tj@learnboost.com>",
+  "scripts": {
+    "test": "make test"
+  },
   "dependencies": {},
   "devDependencies": {
     "mocha": "*",
