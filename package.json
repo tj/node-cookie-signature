@@ -4,6 +4,10 @@
   "description": "Sign and unsign cookies",
   "keywords": ["cookie", "sign", "unsign"],
   "author": "TJ Holowaychuk <tj@learnboost.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/visionmedia/node-cookie-signature"
+  },
   "dependencies": {},
   "devDependencies": {
     "mocha": "*",
