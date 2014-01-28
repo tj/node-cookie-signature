@@ -1,5 +1,10 @@
 
-1.0.1 / 2013-04-15 
+1.0.2 / 2014-01-28
+==================
+
+ * fix for timing attacks
+
+1.0.1 / 2013-04-15
 ==================
 
   * Revert "Changed underlying HMAC algo. to sha512."
