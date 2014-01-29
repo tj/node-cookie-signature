@@ -1,8 +1,13 @@
+1.0.3 / 2014-01-28
+==================
+
+ * fix for timing attacks
 
 1.0.2 / 2014-01-28
 ==================
 
- * fix for timing attacks
+ * fix missing repository warning
+ * fix typo in test
 
 1.0.1 / 2013-04-15
 ==================
