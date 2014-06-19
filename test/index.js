@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -11,7 +10,7 @@ describe('.sign(val, secret)', function(){
     val.should.equal('hello.DGDUkGlIkCzPz+C0B064FNgHdEjox7ch8tOBGslZ5QI');
 
     var val = cookie.sign('hello', 'luna');
-    val.should.not.equal('hhello.DGDUkGlIkCzPz+C0B064FNgHdEjox7ch8tOBGslZ5QI');
+    val.should.not.equal('hello.DGDUkGlIkCzPz+C0B064FNgHdEjox7ch8tOBGslZ5QI');
   })
 })
 
