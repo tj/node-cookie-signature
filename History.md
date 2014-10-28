@@ -1,8 +1,12 @@
+1.0.5 / 2014-09-05
+==================
+
+* add license to package.json
+
 1.0.4 / 2014-06-25
 ==================
 
  * corrected avoidance of timing attacks (thanks @tenbits!)
-
 
 1.0.3 / 2014-01-28
 ==================
