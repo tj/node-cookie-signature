@@ -11,5 +11,8 @@
     "mocha": "*",
     "should": "*"
   },
+  "scripts": {
+    "test": "mocha --require should --reporter spec"
+  },
   "main": "index"
 }
