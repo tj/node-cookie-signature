@@ -39,13 +39,13 @@ exports.unsign = function(val, secret){
   var str = val.slice(0, val.lastIndexOf('.'))
     , mac = exports.sign(str, secret);
   
-  return sha1(mac) == sha1(val) ? str : false;
+  return sha256(mac) == sha256(val) ? str : false;
 };
 
 /**
  * Private
  */
 
-function sha1(str){
-  return crypto.createHash('sha1').update(str).digest('hex');
+function sha256(str){
+  return crypto.createHash('sha256').update(str).digest('hex');
 }
