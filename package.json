@@ -5,8 +5,14 @@
   "keywords": ["cookie", "sign", "unsign"],
   "author": "TJ Holowaychuk <tj@learnboost.com>",
   "license": "MIT",
-  "repository": { "type": "git", "url": "https://github.com/visionmedia/node-cookie-signature.git"},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/visionmedia/node-cookie-signature.git"
+  },
   "dependencies": {},
+  "engines": {
+    "node": ">=6.6.0"
+  },
   "devDependencies": {
     "mocha": "*",
     "should": "*"
