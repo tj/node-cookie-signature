@@ -45,7 +45,3 @@ exports.unsign = function(val, secret){
 /**
  * Private
  */
-
-function sha1(str){
-  return crypto.createHash('sha1').update(str).digest('hex');
-}
