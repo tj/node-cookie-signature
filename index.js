@@ -39,5 +39,5 @@ exports.unsign = function(val, secret){
   var str = val.slice(0, val.lastIndexOf('.'))
     , mac = exports.sign(str, secret);
 
-  return crypto.timingSafeEqual(Buffer.from(mac,'ascii'), Buffer.from(val,'ascii')) ? str : false;
+  return crypto.timingSafeEqual(Buffer.from(mac), Buffer.from(val)) ? str : false;
 };
