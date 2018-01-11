@@ -41,7 +41,3 @@ exports.unsign = function(val, secret){
 
   return crypto.timingSafeEqual(Buffer.from(mac,'ascii'), Buffer.from(val,'ascii')) ? str : false;
 };
-
-/**
- * Private
- */
