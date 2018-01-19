@@ -39,7 +39,7 @@ exports.unsign = function(val, secret){
   var str = val.slice(0, val.lastIndexOf('.'))
     , mac = exports.sign(str, secret)
     , macBuffer = Buffer.from(mac)
-    , valBuffer = Buffer(macBuffer.length);
+    , valBuffer = Buffer.alloc(macBuffer.length);
 
   valBuffer.write(val);
   return crypto.timingSafeEqual(macBuffer, valBuffer) ? str : false;
