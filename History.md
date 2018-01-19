@@ -1,3 +1,9 @@
+1.1.0 / 2018-01-18
+==================
+
+* switch to built-in `crypto.timingSafeEqual` for validation instead of previous double-hash method (thank you @jodevsa!)
+
+
 1.0.6 / 2015-02-03
 ==================
 
