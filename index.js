@@ -3,6 +3,7 @@
  */
 
 var crypto = require('crypto');
+var timingSafeCompare = require('tsscmp');
 
 /**
  * Sign the given `val` with `secret`.
@@ -37,10 +38,7 @@ exports.unsign = function(val, secret){
   if ('string' != typeof val) throw new TypeError("Signed cookie string must be provided.");
   if ('string' != typeof secret) throw new TypeError("Secret string must be provided.");
   var str = val.slice(0, val.lastIndexOf('.'))
-    , mac = exports.sign(str, secret)
-    , macBuffer = Buffer.from(mac)
-    , valBuffer = Buffer.alloc(macBuffer.length);
+    , mac = exports.sign(str, secret);
 
-  valBuffer.write(val);
-  return crypto.timingSafeEqual(macBuffer, valBuffer) ? str : false;
+  return timingSafeCompare(mac, val) ? str : false;
 };

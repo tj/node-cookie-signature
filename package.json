@@ -9,9 +9,11 @@
     "type": "git",
     "url": "https://github.com/visionmedia/node-cookie-signature.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tsscmp": "~1.0.5"
+  },
   "engines": {
-    "node": ">=6.6.0"
+    "node": ">=0.6.0"
   },
   "devDependencies": {
     "mocha": "*",
