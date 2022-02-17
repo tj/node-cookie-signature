@@ -18,6 +18,6 @@ describe('.unsign(val, secret)', function(){
   it('should unsign the cookie', function(){
     var val = cookie.sign('hello', 'tobiiscool');
     cookie.unsign(val, 'tobiiscool').should.equal('hello');
-    cookie.unsign(val, 'luna').should.be.false;
+    cookie.unsign(val, 'luna').should.be.false();
   })
 })
