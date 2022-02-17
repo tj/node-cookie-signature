@@ -12,10 +12,13 @@ describe('.sign(val, secret)', function(){
     var val = cookie.sign('hello', 'luna');
     val.should.not.equal('hello.DGDUkGlIkCzPz+C0B064FNgHdEjox7ch8tOBGslZ5QI');
   })
-  it('should accept non-string secrets', function(){
+  it('should accept appropriately non-string secrets', function(){
     var key = Buffer.from("A0ABBC0C", 'hex'),
         val = cookie.sign('hello', key);
     val.should.equal('hello.hIvljrKw5oOZtHHSq5u+MlL27cgnPKX77y7F+x5r1to');
+    (function () {
+      cookie.sign('unsupported', new Date());
+    }).should.throw();
   })
 })
 
