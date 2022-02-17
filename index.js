@@ -39,8 +39,9 @@ exports.unsign = function(input, secret){
   var tentativeValue = input.slice(0, input.lastIndexOf('.')),
       expectedInput = exports.sign(tentativeValue, secret),
       expectedBuffer = Buffer.from(expectedInput),
-      inputBuffer = Buffer.alloc(expectedBuffer.length);
-
-  inputBuffer.write(input);
-  return crypto.timingSafeEqual(expectedBuffer, inputBuffer) ? tentativeValue : false;
+      inputBuffer = Buffer.from(input);
+  return (
+    expectedBuffer.length === inputBuffer.length &&
+    crypto.timingSafeEqual(expectedBuffer, inputBuffer)
+   ) ? tentativeValue : false;
 };
