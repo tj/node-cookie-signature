@@ -24,23 +24,23 @@ exports.sign = function(val, secret){
 };
 
 /**
- * Unsign and decode the given `val` with `secret`,
+ * Unsign and decode the given `input` with `secret`,
  * returning `false` if the signature is invalid.
  *
- * @param {String} val
+ * @param {String} input
  * @param {String} secret
  * @return {String|Boolean}
  * @api private
  */
 
-exports.unsign = function(val, secret){
-  if ('string' != typeof val) throw new TypeError("Signed cookie string must be provided.");
+exports.unsign = function(input, secret){
+  if ('string' != typeof input) throw new TypeError("Signed cookie string must be provided.");
   if ('string' != typeof secret) throw new TypeError("Secret string must be provided.");
-  var str = val.slice(0, val.lastIndexOf('.'))
-    , mac = exports.sign(str, secret)
-    , macBuffer = Buffer.from(mac)
-    , valBuffer = Buffer.alloc(macBuffer.length);
+  var tentativeValue = input.slice(0, input.lastIndexOf('.')),
+      expectedInput = exports.sign(tentativeValue, secret),
+      expectedBuffer = Buffer.from(expectedInput),
+      inputBuffer = Buffer.alloc(expectedBuffer.length);
 
-  valBuffer.write(val);
-  return crypto.timingSafeEqual(macBuffer, valBuffer) ? str : false;
+  inputBuffer.write(input);
+  return crypto.timingSafeEqual(expectedBuffer, inputBuffer) ? tentativeValue : false;
 };
