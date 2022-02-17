@@ -12,6 +12,14 @@ describe('.sign(val, secret)', function(){
     var val = cookie.sign('hello', 'luna');
     val.should.not.equal('hello.DGDUkGlIkCzPz+C0B064FNgHdEjox7ch8tOBGslZ5QI');
   })
+  it('should accept appropriately non-string secrets', function(){
+    var key = Buffer.from("A0ABBC0C", 'hex'),
+        val = cookie.sign('hello', key);
+    val.should.equal('hello.hIvljrKw5oOZtHHSq5u+MlL27cgnPKX77y7F+x5r1to');
+    (function () {
+      cookie.sign('unsupported', new Date());
+    }).should.throw();
+  })
 })
 
 describe('.unsign(val, secret)', function(){
@@ -29,5 +37,10 @@ describe('.unsign(val, secret)', function(){
     cookie.unsign('garbage.'+val, pwd).should.be.false();
     cookie.unsign(val+'.garbage', pwd).should.be.false();
     cookie.unsign(val+'garbage', pwd).should.be.false();
+  })
+  it('should accept non-string secrets', function(){
+    var key = Uint8Array.from([0xA0, 0xAB, 0xBC, 0x0C]),
+        val = cookie.unsign('hello.hIvljrKw5oOZtHHSq5u+MlL27cgnPKX77y7F+x5r1to', key);
+    val.should.equal('hello');
   })
 })
