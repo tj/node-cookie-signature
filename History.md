@@ -1,3 +1,9 @@
+1.2.1 / 2022-02-27
+==================
+
+* update annotations for allowed secret key types (#44, thanks @jyasskin!)
+
+
 1.2.0 / 2022-02-17
 ==================
 
