@@ -8,7 +8,7 @@ var crypto = require('crypto');
  * Sign the given `val` with `secret`.
  *
  * @param {String} val
- * @param {String} secret
+ * @param {String|NodeJS.ArrayBufferView|crypto.KeyObject} secret
  * @return {String}
  * @api private
  */
@@ -28,7 +28,7 @@ exports.sign = function(val, secret){
  * returning `false` if the signature is invalid.
  *
  * @param {String} input
- * @param {String} secret
+ * @param {String|NodeJS.ArrayBufferView|crypto.KeyObject} secret
  * @return {String|Boolean}
  * @api private
  */
