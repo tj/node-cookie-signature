@@ -1,3 +1,11 @@
+1.2.0 / 2022-02-17
+==================
+
+* allow buffer and other node-supported types as key (#33)
+* be pickier about extra content after signed portion (#40)
+* some internal code clarity/cleanup improvements (#26)
+
+
 1.1.0 / 2018-01-18
 ==================
 
