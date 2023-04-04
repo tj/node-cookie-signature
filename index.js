@@ -3,6 +3,8 @@
  */
 
 var crypto = require('crypto');
+var safeCompare = require('safe-compare')
+var bufferFrom = require('buffer-from')
 
 /**
  * Sign the given `val` with `secret`.
@@ -38,10 +40,11 @@ exports.unsign = function(input, secret){
   if (null == secret) throw new TypeError("Secret key must be provided.");
   var tentativeValue = input.slice(0, input.lastIndexOf('.')),
       expectedInput = exports.sign(tentativeValue, secret),
-      expectedBuffer = Buffer.from(expectedInput),
-      inputBuffer = Buffer.from(input);
+      expectedBuffer = bufferFrom(expectedInput),
+      inputBuffer = bufferFrom(input);
+  safeCompare = crypto.timingSafeEqual || safeCompare
   return (
     expectedBuffer.length === inputBuffer.length &&
-    crypto.timingSafeEqual(expectedBuffer, inputBuffer)
+    safeCompare(expectedBuffer, inputBuffer)
    ) ? tentativeValue : false;
 };

@@ -2,14 +2,21 @@
   "name": "cookie-signature",
   "version": "1.2.1",
   "description": "Sign and unsign cookies",
-  "keywords": ["cookie", "sign", "unsign"],
+  "keywords": [
+    "cookie",
+    "sign",
+    "unsign"
+  ],
   "author": "TJ Holowaychuk <tj@learnboost.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/visionmedia/node-cookie-signature.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "buffer-from": "^1.1.2",
+    "safe-compare": "^1.1.4"
+  },
   "engines": {
     "node": ">=6.6.0"
   },
