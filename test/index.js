@@ -69,6 +69,15 @@ describe('.unsign(val, secret)', function(){
     cookie.unsign('foobar.N5r0C3M8W+IPpzyAJaIddMWbTGfDSO+bfKlZErJ+MeE', 'keyboard cat').should.equal('foobar')
   })
 
+  it('should accept Buffer secrets', function () {
+    var key = bufferFrom('keyboard cat')
+    cookie.unsign('foobar.N5r0C3M8W+IPpzyAJaIddMWbTGfDSO+bfKlZErJ+MeE', key).should.equal('foobar');
+
+    // 'nyan cat' in base64
+    var key = bufferFrom('bnlhbiBjYXQ=', 'base64')
+    cookie.unsign('foobar.JTCAgiMWsnuZpN3mrYnEUjXlGxmDi4POCBnWbRxse88', key).should.equal('foobar');
+  })
+
   it('should reject malformed cookies', function(){
     var pwd = 'actual sekrit password';
     cookie.unsign('fake unsigned data', pwd).should.be.false();
