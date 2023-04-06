@@ -25,9 +25,6 @@ jobs:
       - name: Clear npm cache
         run: npm cache clean --force
       
-      - name: Install dependencies
-        run: npm install
-      
       - name: Install Node.js version-specific mocha
         run: |
           nodev="$(cut -d. -f1 <<< "${{ matrix.node-version }}")"
@@ -46,6 +43,9 @@ jobs:
           else
             npm install --save-dev mocha@^10
           fi
+        
+      - name: Install dependencies
+        run: npm install
       
       - name: Test
         run: npm test
