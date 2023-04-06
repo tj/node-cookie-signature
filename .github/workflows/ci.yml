@@ -1,0 +1,51 @@
+name: ci
+
+on:
+- pull_request
+- push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        node-version: ['0.10', '0.12', '1.8', '2.5', '3.3', '4.9', '5.12', '6.17', '7.10', '8.17', '9.11', '10.24', '11.15', '12.22', '13.14', '14.20', '15.14', '16.19', '17.9', '18.14', '19.7']
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Install Node.js ${{ matrix.node-version }}
+        shell: bash -eo pipefail -l {0}
+        run: |
+          nvm install --default ${{ matrix.node-version }}
+          dirname "$(nvm which ${{ matrix.node-version }})" >> "$GITHUB_PATH"
+      
+      - name: Clear npm cache
+        run: npm cache clean --force
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Install Node.js version-specific mocha
+        run: |
+          nodev="$(cut -d. -f1 <<< "${{ matrix.node-version }}")"
+          if [[ $nodev -le 3 ]]; then
+            npm install --save-dev mocha@3.5.3
+          elif [[ $nodev -le 5 ]]; then
+            npm install --save-dev mocha@5.2.0
+          elif [[ $nodev -le 7 ]]; then
+            npm install --save-dev mocha@6.2.2
+          elif [[ $nodev -le 9 ]]; then
+            npm install --save-dev mocha@7.2.0
+          elif [[ $nodev -le 11 ]]; then
+            npm install --save-dev mocha@8.4.0
+          elif [[ $nodev -le 13 ]]; then
+            npm install --save-dev mocha@9.2.2
+          else
+            npm install --save-dev mocha@^10
+          fi
+      
+      - name: Test
+        run: npm test
