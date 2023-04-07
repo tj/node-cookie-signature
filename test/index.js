@@ -3,7 +3,7 @@
  */
 
 var cookie = require('..');
-var bufferFrom = require('buffer-from')
+var bufferFrom = (typeof Buffer.from === 'function') ? Buffer.from : function (str, enc) { return new Buffer(str, enc) };
 
 describe('.sign(val, secret)', function(){
   it('should reject non-string and non-buffer secrets', function () {
