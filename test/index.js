@@ -40,6 +40,7 @@ describe('.unsign(val, secret)', function(){
     cookie.unsign(val+'garbage', pwd).should.be.false();
   })
   it('should accept non-string secrets', function(){
+    // Will fail on Node < 15
     var key = Uint8Array.from([0xA0, 0xAB, 0xBC, 0x0C]),
         val = cookie.unsign('hello.hIvljrKw5oOZtHHSq5u+MlL27cgnPKX77y7F+x5r1to', key);
     val.should.equal('hello');
