@@ -18,6 +18,12 @@
 * switch to built-in `crypto.timingSafeEqual` for validation instead of previous double-hash method (thank you @jodevsa!)
 
 
+1.0.7 / 2023-04-12
+==================
+
+Later release for older node.js versions. See the [v1.0.x branch notes](https://github.com/tj/node-cookie-signature/blob/v1.0.x/History.md#107--2023-04-12).
+
+
 1.0.6 / 2015-02-03
 ==================
 
