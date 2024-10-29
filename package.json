@@ -1,6 +1,7 @@
 {
   "name": "cookie-signature",
   "version": "1.2.1",
+  "main": "index.js",
   "description": "Sign and unsign cookies",
   "keywords": ["cookie", "sign", "unsign"],
   "author": "TJ Holowaychuk <tj@learnboost.com>",
@@ -20,5 +21,4 @@
   "scripts": {
     "test": "mocha --require should --reporter spec"
   },
-  "main": "index"
 }
