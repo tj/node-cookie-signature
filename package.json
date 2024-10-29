@@ -20,5 +20,5 @@
   },
   "scripts": {
     "test": "mocha --require should --reporter spec"
-  },
+  }
 }
